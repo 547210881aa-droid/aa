@@ -1,0 +1,319 @@
+* { box-sizing: border-box; }
+    html, body { min-height: 100%; }
+    body {
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background: #eef1f5;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    .frame {
+      position: relative;
+      container-type: inline-size;
+      width: min(375px, 100%);
+      overflow: hidden;
+      border-radius: 20px;
+      background: #fff;
+      box-shadow: 0 18px 55px rgba(21, 31, 45, .18);
+    }
+    .frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .carousel {
+      position: absolute;
+      z-index: 1;
+      top: 26.133cqw;
+      left: 0;
+      width: 100%;
+      height: 66.667cqw;
+      overflow: hidden;
+      background: #f6f7f9;
+    }
+    .carousel-row {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+    }
+    .carousel-row:first-child { top: 1.867cqw; }
+    .carousel-row:last-child { top: 35.733cqw; }
+    .carousel-track {
+      display: flex;
+      width: max-content;
+      will-change: transform;
+      animation: slide-left 13s linear infinite;
+    }
+    .carousel-row:last-child .carousel-track {
+      animation-name: slide-right;
+    }
+    .carousel-group {
+      display: flex;
+      gap: 6.4cqw;
+      padding-right: 6.4cqw;
+    }
+    .food-card {
+      display: grid;
+      flex: 0 0 27.2cqw;
+      width: 27.2cqw;
+      height: 27.2cqw;
+      place-items: center;
+      overflow: hidden;
+      border-radius: 3.2cqw;
+      background: #fff;
+    }
+    .food-card img {
+      margin: auto;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center center;
+    }
+    .food-card img.narrow {
+      width: 78.43%;
+      transform: translateX(24%);
+    }
+    .food-card img.chicken { transform: translateX(17%); }
+    .choices {
+      position: absolute;
+      z-index: 2;
+      left: 6.4cqw;
+      top: 153.067cqw;
+      display: flex;
+      align-items: flex-end;
+      gap: 2.667cqw;
+      width: 87.2cqw;
+      height: 33.867cqw;
+      background: #fff;
+      box-shadow: 0 0 0 2.667cqw #fff;
+    }
+    .choice-option {
+      position: relative;
+      display: grid;
+      flex: 0 0 25.6cqw;
+      width: 25.6cqw;
+      height: 27.2cqw;
+      padding: 0;
+      cursor: pointer;
+      place-items: center;
+      color: #050505;
+      border: .533cqw solid #e7e7e7;
+      border-radius: 4.267cqw;
+      background: #fff;
+      font: inherit;
+      transition: width .22s ease, height .22s ease, flex-basis .22s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .choice-option.is-selected {
+      flex-basis: 30.133cqw;
+      width: 30.133cqw;
+      height: 32.8cqw;
+      border: 1.067cqw solid #ffc20a;
+      border-radius: 7.467cqw;
+      background: linear-gradient(#ffe62c, #ffd610);
+    }
+    .choice-option:focus-visible {
+      outline: 3px solid #1677ff;
+      outline-offset: 3px;
+    }
+    .choice-option:active { transform: scale(.96); }
+    .choice-copy {
+      display: grid;
+      gap: 2.133cqw;
+      place-items: center;
+      line-height: 1.25;
+      font-size: 4.267cqw;
+      font-weight: 600;
+    }
+    .choice-option.is-selected .choice-copy {
+      gap: 2.667cqw;
+    }
+    .eye-pair {
+      display: flex;
+      gap: 3.2cqw;
+      height: 2.667cqw;
+      align-items: center;
+    }
+    .eye-pair i {
+      display: block;
+      width: 3.733cqw;
+      height: 2.133cqw;
+      border-radius: 0 0 2.133cqw 2.133cqw;
+      background: #050505;
+      transform: rotate(7deg);
+    }
+    .eye-pair i:last-child { transform: rotate(-7deg); }
+    .choice-option:not(.is-selected) .eye-pair i {
+      width: 2.667cqw;
+      height: 1.6cqw;
+      border-radius: 1.6cqw 1.6cqw .8cqw .8cqw;
+    }
+    .choice-option img.group10 {
+      position: absolute;
+      inset: -1.067cqw;
+      display: none;
+      width: 30.133cqw;
+      height: 32.8cqw;
+      max-width: none;
+    }
+    .choice-option[data-choice="random"].is-selected {
+      border-color: transparent;
+      background: transparent;
+    }
+    .choice-option[data-choice="random"].is-selected .choice-copy { display: none; }
+    .choice-option[data-choice="random"].is-selected img.group10 { display: block; }
+    .help-button {
+      position: absolute;
+      z-index: 3;
+      left: 7.733cqw;
+      top: 193.6cqw;
+      width: 84.8cqw;
+      height: 15.2cqw;
+      padding: 0;
+      cursor: pointer;
+      border: 0;
+      border-radius: 2.133cqw;
+      background: transparent;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .help-button:focus-visible {
+      outline: 3px solid #1677ff;
+      outline-offset: 3px;
+    }
+    .frame.is-result .carousel,
+    .frame.is-result .choices,
+    .frame.is-result .help-button {
+      visibility: hidden;
+      pointer-events: none;
+    }
+    .result-tag {
+      position: absolute;
+      z-index: 3;
+      top: 125.6cqw;
+      left: 65.067cqw;
+      display: none;
+      width: 24cqw;
+      height: 12.533cqw;
+      place-items: center;
+      color: #fff;
+      border-radius: 6.4cqw;
+      background: #050505;
+      font: 600 4.8cqw/1 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    .result-tag i {
+      position: absolute;
+      left: -1.6cqw;
+      width: 5.333cqw;
+      height: 5.333cqw;
+      border-radius: 50%;
+      background: #ffe000;
+    }
+    .frame.is-result:not(.is-download):not(.is-reselect) .result-tag { display: grid; }
+    .back-button {
+      position: absolute;
+      z-index: 4;
+      top: 5.333cqw;
+      left: 0;
+      display: none;
+      width: 10.667cqw;
+      height: 13.333cqw;
+      padding: 0;
+      cursor: pointer;
+      border: 0;
+      background: transparent;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .frame.is-result:not(.is-reselect) .back-button { display: block; }
+    .back-button:focus-visible {
+      outline: 3px solid #1677ff;
+      outline-offset: -3px;
+    }
+    .share-button {
+      position: absolute;
+      z-index: 4;
+      top: 200.8cqw;
+      left: 34.933cqw;
+      display: none;
+      width: 60cqw;
+      height: 13.333cqw;
+      padding: 0;
+      cursor: pointer;
+      border: 0;
+      border-radius: 4.267cqw;
+      place-items: center;
+      color: #050505;
+      background: #ffdf00;
+      font: 600 5.333cqw/1 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .frame.is-result:not(.is-download):not(.is-reselect) .share-button { display: grid; }
+    .reselect-button {
+      position: absolute;
+      z-index: 4;
+      top: 200.8cqw;
+      left: 5.067cqw;
+      display: none;
+      width: 27.467cqw;
+      height: 13.333cqw;
+      padding: 0;
+      cursor: pointer;
+      border: 0;
+      border-radius: 4.267cqw;
+      background: transparent;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .frame.is-result:not(.is-download):not(.is-reselect) .reselect-button { display: block; }
+    .download-close {
+      position: absolute;
+      z-index: 4;
+      top: 149.067cqw;
+      left: 44.8cqw;
+      display: none;
+      width: 10.667cqw;
+      height: 10.667cqw;
+      padding: 0;
+      cursor: pointer;
+      border: 0;
+      border-radius: 50%;
+      background: transparent;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .frame.is-download .download-close { display: block; }
+    .retry-confirm {
+      position: absolute;
+      z-index: 4;
+      top: 184.267cqw;
+      left: 5.333cqw;
+      display: none;
+      width: 89.333cqw;
+      height: 14.4cqw;
+      padding: 0;
+      cursor: pointer;
+      border: 0;
+      border-radius: 6.4cqw;
+      background: transparent;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .frame.is-reselect .retry-confirm { display: block; }
+    .frame.is-reselect .choices {
+      top: 142.933cqw;
+      visibility: visible;
+      pointer-events: auto;
+    }
+    .share-button:focus-visible,
+    .download-close:focus-visible,
+    .reselect-button:focus-visible,
+    .retry-confirm:focus-visible {
+      outline: 3px solid #1677ff;
+      outline-offset: 2px;
+    }
+    @keyframes slide-left {
+      from { transform: translateX(0); }
+      to { transform: translateX(-100.8cqw); }
+    }
+    @keyframes slide-right {
+      from { transform: translateX(-100.8cqw); }
+      to { transform: translateX(0); }
+    }

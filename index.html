@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Frame 14</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="frame">
+    <img id="screen-image" src="assets/svg/Frame_14_restored.svg" width="375" height="812" alt="今天想吃什么选择界面">
+    <section class="carousel" aria-label="食物轮播">
+      <div class="carousel-row">
+        <div class="carousel-track">
+          <div class="carousel-group">
+            <span class="food-card"><img class="narrow" src="assets/images/carousel/cupcake.png" alt="纸杯蛋糕"></span>
+            <span class="food-card"><img src="assets/images/carousel/pie.png" alt="苹果派"></span>
+            <span class="food-card"><img src="assets/images/carousel/strawberry.png" alt="草莓"></span>
+          </div>
+          <div class="carousel-group" aria-hidden="true">
+            <span class="food-card"><img class="narrow" src="assets/images/carousel/cupcake.png" alt=""></span>
+            <span class="food-card"><img src="assets/images/carousel/pie.png" alt=""></span>
+            <span class="food-card"><img src="assets/images/carousel/strawberry.png" alt=""></span>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-row">
+        <div class="carousel-track">
+          <div class="carousel-group">
+            <span class="food-card"><img class="narrow chicken" src="assets/images/carousel/chicken.png" alt="小鸡甜点"></span>
+            <span class="food-card"><img src="assets/images/carousel/blueberry.png" alt="蓝莓"></span>
+            <span class="food-card"><img src="assets/images/carousel/peach.png" alt="桃子"></span>
+          </div>
+          <div class="carousel-group" aria-hidden="true">
+            <span class="food-card"><img class="narrow chicken" src="assets/images/carousel/chicken.png" alt=""></span>
+            <span class="food-card"><img src="assets/images/carousel/blueberry.png" alt=""></span>
+            <span class="food-card"><img src="assets/images/carousel/peach.png" alt=""></span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="result-tag" aria-hidden="true"><i></i><span>烧烤</span></div>
+    <div class="choices" role="group" aria-label="用餐方式">
+      <button class="choice-option" data-choice="random" type="button" aria-pressed="false">
+        <span class="choice-copy"><span class="eye-pair"><i></i><i></i></span><span>随便<br>吃点</span></span>
+        <img class="group10" src="assets/svg/Group_10.svg" width="113" height="123" alt="">
+      </button>
+      <button class="choice-option is-selected" data-choice="struggle" type="button" aria-pressed="true">
+        <span class="choice-copy"><span class="eye-pair"><i></i><i></i></span><span>正在<br>纠结</span></span>
+      </button>
+      <button class="choice-option" data-choice="proper" type="button" aria-pressed="false">
+        <span class="choice-copy"><span class="eye-pair"><i></i><i></i></span><span>整点<br>好的</span></span>
+      </button>
+    </div>
+    <button class="help-button" type="button" aria-label="帮我选择"></button>
+    <button class="back-button" type="button" aria-label="返回选择界面"></button>
+    <button class="reselect-button" type="button" aria-label="重选"></button>
+    <button class="share-button" type="button" aria-label="分享结果"><span>分享</span></button>
+    <button class="download-close" type="button" aria-label="关闭分享界面并返回结果页"></button>
+    <button class="retry-confirm" type="button" aria-label="重新选择并返回轮播界面"></button>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
