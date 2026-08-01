@@ -43,7 +43,7 @@ const choiceOptions = [...document.querySelectorAll('.choice-option')];
 
     shareButton.addEventListener('click', () => {
       frame.classList.add('is-download');
-      screenImage.src = 'assets/svg/download.svg';
+      screenImage.src = './assets/svg/download.svg';
       screenImage.alt = '分享或保存结果';
     });
 
